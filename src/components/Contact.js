@@ -1,7 +1,8 @@
+import React from 'react';
 export const Contact = () => {
     return (
         <div>
-            contact us page
+           <h1>Hello</h1>
         </div>
     )
 }

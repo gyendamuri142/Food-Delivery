@@ -5,7 +5,8 @@ import { Shimmer } from "./Shimmer";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Restaurantmenu from "./Restaurantmenu";
-
+import { useContext } from "react";
+import UserContext from "../utils/Usercontext";
 
 const Body = () => {
 
@@ -14,6 +15,9 @@ const Body = () => {
 const[list, setList] = useState([]);
 const[filterRestaurant, setFilterRestaurant] = useState([]);
 const[searchText, setSearchText] = useState("");
+// const{setusername}=useContext(UserContext);
+
+const {username,setusername}=useContext(UserContext);
 
 
 
@@ -75,6 +79,10 @@ const[searchText, setSearchText] = useState("");
                   setFilterRestaurant(filterList);
                 }}>Top Rated Restaurant</button>
             </div>
+            {/* <div className="m-2 px-7 p-2 bg-gray-200">
+              <input className=""
+              value={username} onChange={(e)=>setusername(e.target.value)}/>
+            </div> */}
             <div className="flex flex-wrap">
             <Link className="flex flex-wrap" to="Restaurantmenu">   {
                 

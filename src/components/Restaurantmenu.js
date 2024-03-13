@@ -1,9 +1,11 @@
 import { useEffect,useEffect, useState } from "react";
 import Remenudata from "../utils/resmenudata";
+import Restaurantcartgeory from "./Restaurantcartegeory";
 
 const Restaurantmenu=()=>
 {
     const [resmenu,setresmenu]=useState(Remenudata);
+    const[Reda,setReda]=useState(0);
     // setresmenu(Remenudata);
 //   useEffect(
 //         ()=>{
@@ -22,9 +24,9 @@ const Restaurantmenu=()=>
     //     // setresmenu(resmenu?.text);
         
         
-        console.log(resmenu.data);
-        const itemCard=resmenu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.filter((c)=>(c.card.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"));
-
+        // console.log(resmenu.data);
+        const categories=resmenu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((c)=>(c.card.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"));
+        // console.log(resmenu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter((c)=>(c.card.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")));
     
 
 
@@ -33,18 +35,23 @@ const Restaurantmenu=()=>
 
     return(
 
-        <div className="Resmenu m-10"> 
-        <h1 className="font-bold m-5">Name:{resmenu.data.cards[0].card.card.info.name}</h1>
+        <div className="Resmenu m-10 text-center"> 
+        <h1 className="font-bold m-5 text-2xl">{resmenu.data.cards[0].card.card.info.name}</h1>
   
-        <h2> avg rating{resmenu.data.cards[0].card.card.info.avgRating}
+        <h2 className="text-lg"> Average Rating{resmenu.data.cards[0].card.card.info.avgRating}
         </h2>
 
-
-          <h2>MENU</h2>
-            <ol>
+{/* 
+          <h2>MENU</h2> */}
+            {/* <ol>
                 {itemCards.map((item)=><li>{item.card.info.name}-{item.card.info.price/100}</li>)}
-            </ol>
-          
+            </ol> */}
+          <p>
+            {categories.map((c,index)=>(<Restaurantcartgeory data={c.card.card}
+             Reda={index===Reda ? true :false}
+             setReda={()=>setReda(index)}/>))}
+             
+          </p>
         </div>
 
     )
