@@ -1,18 +1,30 @@
 {
+  "homepage": "https://gyendamuri.github.io/Food-Delivery",
   "name": "namastereact",
   "version": "1.0.0",
   "description": "This is a repo for online course given by Namaste React",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "start": "npx parcel index.html",
-    "build": "npx build index.html"
+    "build": "parcel build index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "@babel/preset-react": "^7.23.3",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "babel-jest": "^29.7.0",
     "buffer": "^6.0.3",
     "gh-pages": "^6.1.1",
+    "import": "^0.0.6",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "parcel": "^2.11.0",
     "postcss": "^8.4.33",
     "process": "^0.11.10",
@@ -21,9 +33,12 @@
   },
   "dependencies": {
     "-": "^0.0.1",
+    "@reduxjs/toolkit": "^2.2.1",
     "axios": "^1.6.7",
+    "cors": "^2.8.5",
     "D": "^1.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0"
   }
 }
